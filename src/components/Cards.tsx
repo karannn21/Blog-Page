@@ -1,5 +1,4 @@
 import { Clock } from "lucide-react";
-import Image from "next/image";
 
 const blogData = [
   {
