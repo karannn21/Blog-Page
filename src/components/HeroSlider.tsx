@@ -31,21 +31,17 @@ export default function HeroSlider() {
     return () => clearInterval(interval);
   }, []);
 
-  const { image, title, description, buttonText, subText } =
-    slides[currentIndex];
+  const { title, description, buttonText, subText } = slides[currentIndex];
 
   return (
     <section className="relative px-4 md:px-6 pt-[80px] pb-12">
-      {/* 🌈 Rainbow border wrapper */}
       <div className="max-w-screen-xl mx-auto">
         <div className="p-[2px] rounded-2xl bg-gradient-to-r from-pink-500 via-yellow-500 via-green-500 via-blue-500 to-purple-500">
-          {/* 🔒 Inner content wrapper locked to center */}
           <div className="max-w-screen-xl mx-auto">
             <div
               className="relative w-full bg-gradient-to-r from-purple-100 to-blue-100 dark:from-gray-900 dark:to-gray-800
             rounded-[calc(1rem-2px)] shadow-md flex flex-col md:flex-row items-center justify-between px-6 md:px-10 py-10 transition-colors duration-500"
             >
-              {/* Text Block */}
               <div className="max-w-xl text-center md:text-left space-y-4 transition-opacity duration-1000 font-sans">
                 <h1
                   className={`text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white leading-tight`}
@@ -68,7 +64,6 @@ export default function HeroSlider() {
                 </button>
               </div>
 
-              {/* Image Block */}
               <div className="w-full md:w-[400px] h-[400px] relative mt-10 md:mt-0 transition-opacity duration-1000">
                 {slides.map((slide, index) => (
                   <Image
@@ -83,7 +78,6 @@ export default function HeroSlider() {
                 ))}
               </div>
 
-              {/* ⚪ Dot Buttons: Centered inside hero box */}
               <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-4">
                 {slides.map((_, index) => (
                   <button

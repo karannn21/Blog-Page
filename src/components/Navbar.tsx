@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import {
   NavigationMenu,
@@ -17,13 +18,11 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-
       if (currentScrollY > lastScrollY && currentScrollY > 80) {
         setIsVisible(false);
       } else {
         setIsVisible(true);
       }
-
       setLastScrollY(currentScrollY);
     };
 
@@ -40,7 +39,7 @@ export default function Navbar() {
       <div className="flex h-[54px] w-full items-center justify-between px-4 md:container md:px-8 mx-auto">
         <div className="flex items-center justify-start gap-4 w-full">
           <div className="hidden lg:flex items-center gap-6 rounded-[8px] border-2 border-slate-700/30 dark:border-slate-300/30 backdrop-blur-[7px] bg-slate-200/40 dark:bg-black/40 px-4 py-[1px]">
-            <a href="/" className="flex items-center space-x-2">
+            <Link href="/" className="flex items-center space-x-2">
               <Image
                 src="/logo.png"
                 alt="Logo"
@@ -55,22 +54,22 @@ export default function Navbar() {
                 height={40}
                 className="hidden dark:block"
               />
-            </a>
+            </Link>
 
             <div className="h-[30px] w-[1px] bg-slate-700/30 dark:bg-slate-300/30" />
 
-            <a
+            <Link
               href="/"
               className="text-sm font-normal text-slate-950 dark:text-slate-50"
             >
               Home
-            </a>
-            <a
+            </Link>
+            <Link
               href="/products"
               className="text-sm font-normal text-slate-950 dark:text-slate-50"
             >
               Products
-            </a>
+            </Link>
 
             <NavigationMenu>
               <NavigationMenuList>
@@ -82,30 +81,30 @@ export default function Navbar() {
               </NavigationMenuList>
             </NavigationMenu>
 
-            <a
+            <Link
               href="/pricing"
               className="text-sm font-normal text-slate-950 dark:text-slate-50"
             >
               Pricing
-            </a>
-            <a
+            </Link>
+            <Link
               href="/blog"
               className="text-sm font-bold text-[#b100e8] dark:text-[#e879f9]"
             >
               Blog
-            </a>
-            <a
+            </Link>
+            <Link
               href="/support"
               className="text-sm font-normal text-slate-950 dark:text-slate-50"
             >
               Support
-            </a>
-            <a
+            </Link>
+            <Link
               href="/about"
               className="text-sm font-normal text-slate-950 dark:text-slate-50"
             >
               About
-            </a>
+            </Link>
           </div>
         </div>
 
