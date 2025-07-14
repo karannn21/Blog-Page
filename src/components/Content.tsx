@@ -1,74 +1,85 @@
 "use client";
+
 import { useState } from "react";
 import Footer from "./Footer";
 import Banner from "./Banner";
 import Banner2 from "./Banner2";
 import Cards from "./Cards";
+import BlogFilter from "./BlogFilter";
+import { Clock } from "lucide-react";
 
 export default function Content() {
   const recentCards = [
     {
-      title: "Remote Hiring Best Practices",
-      tag: "Remote",
-      image: "https://picsum.photos/id/1050/600/400",
-      date: "12 Jul 2025",
-      readTime: "4 min read",
-    },
-    {
-      title: "Ethical Use of AI in HR",
+      title: "Why Every Company Needs an Applicant Tracking System (ATS) ?",
       tag: "AI",
-      image: "https://picsum.photos/id/1051/600/400",
-      date: "11 Jul 2025",
-      readTime: "3 min read",
-    },
-    {
-      title: "Gen-Z Friendly Interview Formats",
-      tag: "Hiring",
-      image: "https://picsum.photos/id/1052/600/400",
-      date: "10 Jul 2025",
+      image: "home1.png",
+      date: "18 Feb 2025",
       readTime: "5 min read",
     },
     {
-      title: "Smart Screening Tools",
-      tag: "Automation",
-      image: "https://picsum.photos/id/1053/600/400",
-      date: "09 Jul 2025",
-      readTime: "6 min read",
-    },
-    {
-      title: "Hiring Metrics That Matter",
-      tag: "Analytics",
-      image: "https://picsum.photos/id/1054/600/400",
-      date: "08 Jul 2025",
+      title: "How AI is Transforming the World of Recruitment",
+      tag: "Tech",
+      image: "home2.png",
+      date: "17 Feb 2025",
       readTime: "4 min read",
     },
     {
-      title: "Cultural Fit vs Skill Match",
+      title: "Using AI for Skill Assessment: Talent Evaluation",
+      tag: "AI",
+      image: "home3.png",
+      date: "16 Feb 2025",
+      readTime: "6 min read",
+    },
+    {
+      title: "Understanding Different Types of Hiring Assessment Tests",
       tag: "HR",
-      image: "https://picsum.photos/id/1055/600/400",
-      date: "07 Jul 2025",
+      image: "home4.png",
+      date: "15 Feb 2025",
       readTime: "5 min read",
     },
     {
-      title: "Why Preboarding is Critical",
-      tag: "Onboarding",
-      image: "https://picsum.photos/id/1056/600/400",
-      date: "06 Jul 2025",
-      readTime: "3 min read",
-    },
-    {
-      title: "The Power of Employer Branding",
-      tag: "Branding",
-      image: "https://picsum.photos/id/1057/600/400",
-      date: "05 Jul 2025",
+      title: "The Art of Smart Hiring: Next-Generation Skills Assessment",
+      tag: "Analytics",
+      image: "home5.png",
+      date: "14 Feb 2025",
       readTime: "4 min read",
     },
     {
-      title: "Reducing Time-to-Hire",
-      tag: "Efficiency",
-      image: "https://picsum.photos/id/1058/600/400",
-      date: "04 Jul 2025",
-      readTime: "6 min read",
+      title: "Top 5 Recruitment Trends in 2024",
+      tag: "AI",
+      image: "home6.png",
+      date: "13 Feb 2025",
+      readTime: "5 min read",
+    },
+    {
+      title:
+        "AI-Enhanced Candidate Screening in 2024: Revolutionizing Recruitment",
+      tag: "Tech",
+      image: "home7.png",
+      date: "12 Feb 2025",
+      readTime: "5 min read",
+    },
+    {
+      title: "Top 10 Best Talent Assessment Tools for Recruiters in 2025",
+      tag: "Future",
+      image: "home8.png",
+      date: "11 Feb 2025",
+      readTime: "4 min read",
+    },
+    {
+      title: "AI Tech Assessment Tools: The Ultimate Hiring Solution",
+      tag: "HR",
+      image: "home9.png",
+      date: "10 Feb 2025",
+      readTime: "3 min read",
+    },
+    {
+      title: "The Importance of AI in Modern Recruitment",
+      tag: "Legal",
+      image: "home10.png",
+      date: "9 Feb 2025",
+      readTime: "5 min read",
     },
   ];
 
@@ -88,17 +99,17 @@ export default function Content() {
   };
 
   return (
-    <div className="w-full px-6 py-20 flex flex-col gap-16 relative">
-      {/* 🟣 Featured Voices section */}
+    <div className="container mx-auto max-w-screen-xl px-4 py-20 flex flex-col gap-16 relative">
+      <BlogFilter />
+
       <div className="relative">
-        {/* PINK GRID BG */}
         <div
           className="absolute inset-0 -z-10 h-full w-full bg-white 
           bg-[linear-gradient(to_right,#e879f90a_1px,transparent_1px),linear-gradient(to_bottom,#e879f90a_1px,transparent_1px)] 
           bg-[size:28px_28px]
           dark:bg-black dark:bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)]"
         >
-          <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-fuchsia-400 opacity-20 blur-[100px]"></div>
+          <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-fuchsia-400 opacity-20 blur-[100px]" />
         </div>
 
         <div className="flex flex-col items-center text-center gap-3">
@@ -106,9 +117,9 @@ export default function Content() {
             Featured Voices
           </div>
           <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100">
-            Recent{" "}
+            Featured{" "}
             <span className="bg-gradient-to-r from-purple-500 via-cyan-400 to-yellow-400 text-transparent bg-clip-text">
-              Featured Blogs
+              Blogs
             </span>
           </h1>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl">
@@ -122,14 +133,12 @@ export default function Content() {
         </div>
       </div>
 
-      {/* 🟢 Recent Blogs & Banners */}
       <div className="relative">
-        {/* DOTTED BG */}
         <div
           className="absolute inset-0 -z-10 h-full w-full bg-white 
           bg-[radial-gradient(#d1d5db_1px,transparent_1px)] [background-size:16px_16px]
           dark:bg-black dark:bg-[radial-gradient(#1f2937_1px,transparent_1px)]"
-        ></div>
+        />
 
         <div className="flex flex-col items-center text-center gap-3">
           <div className="inline-block px-3 py-1 bg-purple-100 text-purple-700 text-xs font-semibold rounded-full">
@@ -151,8 +160,7 @@ export default function Content() {
               onClick={handlePrev}
               disabled={startIndex === 0}
               className={`w-10 h-10 flex items-center justify-center rounded-full border border-transparent bg-white dark:bg-black relative overflow-hidden
-                ${startIndex === 0 ? "opacity-50 cursor-not-allowed" : ""}
-              `}
+                ${startIndex === 0 ? "opacity-50 cursor-not-allowed" : ""}`}
             >
               <span className="absolute inset-0 rounded-full p-px bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400"></span>
               <span className="relative flex items-center justify-center w-full h-full bg-white dark:bg-black rounded-full">
@@ -167,8 +175,7 @@ export default function Content() {
                   startIndex + 3 >= recentCards.length
                     ? "opacity-50 cursor-not-allowed"
                     : ""
-                }
-              `}
+                }`}
             >
               <span className="absolute inset-0 rounded-full p-px bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400"></span>
               <span className="relative flex items-center justify-center w-full h-full bg-white dark:bg-black rounded-full">
@@ -178,35 +185,44 @@ export default function Content() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 sm:px-6 lg:px-8 mt-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-2 md:px-4 mt-10">
           {visibleCards.map((card, index) => (
             <div
               key={index}
-              className="max-w-sm bg-white dark:bg-gray-900 rounded overflow-hidden shadow-lg transition-all hover:shadow-xl border border-gray-200 dark:border-gray-700"
+              className="p-[2px] rounded-xl bg-gradient-to-r from-pink-500 via-yellow-400 via-green-400 via-blue-500 to-purple-500"
             >
-              <img
-                className="w-full h-48 object-cover"
-                src={card.image}
-                alt={card.title}
-              />
-              <div className="px-6 py-4">
-                <p className="text-xs text-pink-600 font-semibold mb-1">
-                  {card.tag}
-                </p>
-                <div className="font-bold text-xl mb-2 text-gray-800 dark:text-gray-100">
-                  {card.title}
+              <a
+                href="#"
+                className="group flex flex-col w-full max-w-[420px] mx-auto bg-white dark:bg-gray-900 rounded-xl overflow-hidden transform transition-transform duration-300 hover:scale-105"
+              >
+                <div className="relative w-full pt-[60%] overflow-hidden p-1 bg-white">
+                  <img
+                    className="absolute inset-0 w-full h-full object-cover rounded"
+                    src={card.image}
+                    alt={card.title}
+                  />
                 </div>
-                <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
-                  <img src="/logo.png" alt="logo" width={18} height={18} />
-                  <span className="text-[13px] font-medium">
-                    EverythingTalent Team
-                  </span>
-                  <span className="ml-2 text-[13px]">{card.readTime}</span>
+
+                <div className="p-4 flex flex-col gap-2 bg-gray-200 dark:bg-gray-800">
+                  <p className="text-xs text-pink-600 font-semibold">
+                    {card.tag}
+                  </p>
+                  <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 leading-snug line-clamp-2 group-hover:text-purple-600 transition-colors duration-200">
+                    {card.title}
+                  </h2>
+                  <div className="flex items-center flex-wrap gap-2 text-sm text-gray-600 dark:text-gray-400 mt-1">
+                    <img src="/logo.png" alt="logo" width={18} height={18} />
+                    <span className="text-[13px] font-medium">
+                      EverythingTalent Team
+                    </span>
+                    <Clock size={14} className="ml-2" />
+                    <span className="text-[13px]">{card.readTime}</span>
+                  </div>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">
+                    {card.date}
+                  </p>
                 </div>
-                <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
-                  {card.date}
-                </p>
-              </div>
+              </a>
             </div>
           ))}
         </div>

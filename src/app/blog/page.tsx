@@ -6,7 +6,9 @@ export default function page() {
   return (
     <div>
       <Navbar />
+
       <HeroSlider />
+
       <Content />
     </div>
   );
