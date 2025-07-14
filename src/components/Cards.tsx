@@ -1,47 +1,51 @@
 "use client";
 
 import { Clock } from "lucide-react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import clsx from "clsx";
+import { twMerge } from "tailwind-merge";
 
 const blogData = [
   {
     title: "Why Every Company Needs an Applicant Tracking System (ATS) ?",
     tag: "AI",
-    image: "home1.png",
+    image: "/home1.png",
     date: "18 Feb 2025",
     readTime: "5 min read",
   },
   {
     title: "How AI is Transforming the World of Recruitment",
     tag: "Tech",
-    image: "home2.png",
+    image: "/home2.png",
     date: "17 Feb 2025",
     readTime: "4 min read",
   },
   {
     title: "Using AI for Skill Assessment: Talent Evaluation",
     tag: "AI",
-    image: "home3.png",
+    image: "/home3.png",
     date: "16 Feb 2025",
     readTime: "6 min read",
   },
   {
     title: "Understanding Different Types of Hiring Assessment Tests",
     tag: "HR",
-    image: "home4.png",
+    image: "/home4.png",
     date: "15 Feb 2025",
     readTime: "5 min read",
   },
   {
     title: "The Art of Smart Hiring: Next-Generation Skills Assessment",
     tag: "Analytics",
-    image: "home5.png",
+    image: "/home5.png",
     date: "14 Feb 2025",
     readTime: "4 min read",
   },
   {
     title: "Top 5 Recruitment Trends in 2024",
     tag: "AI",
-    image: "home6.png",
+    image: "/home6.png",
     date: "13 Feb 2025",
     readTime: "5 min read",
   },
@@ -49,28 +53,28 @@ const blogData = [
     title:
       "AI-Enhanced Candidate Screening in 2024: Revolutionizing Recruitment",
     tag: "Tech",
-    image: "home7.png",
+    image: "/home7.png",
     date: "12 Feb 2025",
     readTime: "5 min read",
   },
   {
     title: "Top 10 Best Talent Assessment Tools for Recruiters in 2025",
     tag: "Future",
-    image: "home8.png",
+    image: "/home8.png",
     date: "11 Feb 2025",
     readTime: "4 min read",
   },
   {
     title: "AI Tech Assessment Tools: The Ultimate Hiring Solution",
     tag: "HR",
-    image: "home9.png",
+    image: "/home9.png",
     date: "10 Feb 2025",
     readTime: "3 min read",
   },
   {
     title: "The Importance of AI in Modern Recruitment",
     tag: "Legal",
-    image: "home10.png",
+    image: "/home10.png",
     date: "9 Feb 2025",
     readTime: "5 min read",
   },
@@ -81,21 +85,27 @@ export default function Cards() {
     <div className="container mx-auto max-w-screen-xl px-2 md:px-4 py-10">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
         {blogData.map((card, index) => (
-          <div
+          <motion.div
             key={index}
-            className="p-[2px] rounded-xl bg-gradient-to-r from-pink-500 via-yellow-400 via-green-400 via-blue-500 to-purple-500"
+            whileHover={{ scale: 1.05 }}
+            className={twMerge(
+              clsx(
+                "p-[2px] rounded-xl",
+                "bg-gradient-to-r from-pink-500 via-yellow-400 via-green-400 via-blue-500 to-purple-500"
+              )
+            )}
           >
             <a
               href="#"
-              className="group flex flex-col w-full max-w-[420px] mx-auto bg-white dark:bg-gray-900 rounded-xl overflow-hidden transform transition-transform duration-300 hover:scale-105"
+              className="group flex flex-col w-full max-w-[420px] mx-auto bg-white dark:bg-gray-900 rounded-xl overflow-hidden transition-transform duration-300"
             >
               <div className="relative w-full pt-[60%] overflow-hidden p-1 bg-white">
-                <img
+                <Image
                   src={card.image}
                   alt={card.title}
-                  loading="lazy"
-                  decoding="async"
+                  fill
                   className="absolute inset-0 w-full h-full object-cover rounded"
+                  sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
 
@@ -109,7 +119,7 @@ export default function Cards() {
                 </h2>
 
                 <div className="flex items-center flex-wrap gap-2 text-sm text-gray-600 dark:text-gray-400 mt-1">
-                  <img src="/logo.png" alt="logo" width={18} height={18} />
+                  <Image src="/logo.png" alt="logo" width={18} height={18} />
                   <span className="text-[13px] font-medium">
                     EverythingTalent Team
                   </span>
@@ -122,7 +132,7 @@ export default function Cards() {
                 </p>
               </div>
             </a>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

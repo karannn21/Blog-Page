@@ -1,26 +1,34 @@
-import { Facebook, Linkedin, Twitter, Youtube } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
+import { Facebook, Linkedin, Twitter, Youtube } from "lucide-react";
 
-const Footer = () => {
+export default function Footer() {
   return (
-    <footer className="bg-black text-white py-12 px-6 md:px-20">
-      <div className="grid md:grid-cols-4 gap-10">
+    <footer className="bg-black text-white pt-24 px-6 md:px-20 relative overflow-hidden">
+      <div className="grid md:grid-cols-4 gap-10 relative z-10">
         {/* Brand & Description */}
         <div>
           <div className="flex items-center space-x-2 mb-4">
-            <div className="text-3xl font-bold text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-yellow-500 bg-clip-text">
-              <span className="text-white">Everything Talent</span>
-            </div>
+            <Image src="/logo2.png" alt="Logo" width={40} height={40} />
+            <div className="text-2xl font-bold">Everything Talent</div>
           </div>
-          <p className="text-gray-400 text-sm">
+          <p className="text-gray-400 text-sm max-w-xs">
             Enhancing Hiring with AI-powered assessment and tracking for
-            accurate recruitment
+            accurate recruitment.
           </p>
           <div className="flex space-x-4 mt-6">
-            <Twitter size={20} />
-            <Linkedin size={20} />
-            <Youtube size={20} />
-            <Facebook size={20} />
+            <Link href="#">
+              <Twitter size={20} />
+            </Link>
+            <Link href="#">
+              <Linkedin size={20} />
+            </Link>
+            <Link href="#">
+              <Youtube size={20} />
+            </Link>
+            <Link href="#">
+              <Facebook size={20} />
+            </Link>
           </div>
         </div>
 
@@ -99,8 +107,21 @@ const Footer = () => {
           </ul>
         </div>
       </div>
+
+      {/* Skyline Image */}
+      <div className="w-full mt-12 relative z-10">
+        <Image
+          src="/footer.png"
+          alt="Skyline"
+          width={1600}
+          height={300}
+          className="w-full object-cover"
+        />
+      </div>
+
+      <p className="text-gray-500 text-xs mt-4 text-center relative z-10">
+        © 2025 Everything Talent Labs, LLC. All Rights Reserved.
+      </p>
     </footer>
   );
-};
-
-export default Footer;
+}

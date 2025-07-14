@@ -40,15 +40,17 @@ export default function Navbar() {
         <div className="flex items-center justify-start gap-4 w-full">
           <div className="hidden lg:flex items-center gap-6 rounded-[8px] border-2 border-slate-700/30 dark:border-slate-300/30 backdrop-blur-[7px] bg-slate-200/40 dark:bg-black/40 px-4 py-[1px]">
             <Link href="/" className="flex items-center space-x-2">
+              {/* Light mode logo */}
               <Image
                 src="/logo.png"
                 alt="Logo"
                 width={40}
                 height={40}
-                className="dark:hidden block"
+                className="block dark:hidden"
               />
+              {/* Dark mode logo */}
               <Image
-                src="/logo.png"
+                src="/logo2.png"
                 alt="Logo"
                 width={40}
                 height={40}
