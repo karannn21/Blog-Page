@@ -231,8 +231,6 @@ export default function Content() {
         <Banner />
         <div className="mt-16" />
         <Banner2 />
-        <div className="mt-16" />
-        <Footer />
       </div>
     </div>
   );
