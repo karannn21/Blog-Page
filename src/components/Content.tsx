@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Footer from "./Footer";
+
 import Banner from "./Banner";
 import Banner2 from "./Banner2";
 import Cards from "./Cards";
