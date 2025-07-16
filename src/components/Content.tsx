@@ -104,19 +104,16 @@ export default function Content() {
     <div className="w-full relative">
       {/* === Global Background Container === */}
       <div className="fixed inset-0 -z-50">
-        {/* Featured Blogs Background - Grid Pattern with Blur */}
         <div className="absolute inset-0 bg-white dark:bg-black bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]">
-          <div className="absolute left-0 right-0 top-0 m-auto h-[310px] w-[310px] rounded-full bg-fuchsia-400 opacity-20 blur-[100px]"></div>
+          <div className="absolute left-0 right-0 top-0 m-auto h-[310px] w-[310px] rounded-full bg-fuchsia-400 opacity-20 blur-[100px]" />
         </div>
-
-        {/* Recent Blogs Background - Dot Pattern (Initially Hidden) */}
         <div
           className="absolute inset-0 bg-white dark:bg-black bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#374151_1px,transparent_1px)] [background-size:16px_16px] opacity-0 transition-opacity duration-1000"
           id="dot-background"
         ></div>
       </div>
 
-      {/* BlogFilter - Full Width Background */}
+      {/* BlogFilter */}
       <div className="w-full relative z-10">
         <div className="max-w-screen-xl mx-auto px-4 py-20">
           <BlogFilter />
@@ -125,7 +122,7 @@ export default function Content() {
 
       {/* === Featured Blogs Section Start === */}
       <div className="w-full bg-white dark:bg-black bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] relative min-h-screen">
-        <div className="absolute left-0 right-0 top-0 m-auto h-[310px] w-[310px] rounded-full bg-fuchsia-400 opacity-20 blur-[100px]"></div>
+        <div className="absolute left-0 right-0 top-0 m-auto h-[310px] w-[310px] rounded-full bg-fuchsia-400 opacity-20 blur-[100px]" />
         <div className="relative z-10 max-w-screen-xl mx-auto px-4 md:px-6 py-20">
           <div className="flex flex-col items-center text-center gap-3">
             <div className="inline-block px-3 py-1 bg-purple-100 text-purple-700 text-xs font-semibold rounded-full">
@@ -150,8 +147,13 @@ export default function Content() {
       {/* === Featured Blogs Section End === */}
 
       {/* === Recent Blogs Section Start === */}
-      <div className="w-full bg-white dark:bg-black bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#374151_1px,transparent_1px)] [background-size:16px_16px] relative min-h-screen">
-        <div className="max-w-screen-xl mx-auto px-4 md:px-6 py-20">
+      <div className="w-full relative min-h-screen bg-white dark:bg-black bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#374151_1px,transparent_1px)] [background-size:16px_16px]">
+        {/* Blue blending effect - subtle center spot */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <div className="absolute left-1/2 top-1/3 transform -translate-x-1/2 -translate-y-1/2 h-[400px] w-[400px] rounded-full bg-gradient-to-br from-blue-600 via-blue-500 to-blue-400 mix-blend-overlay opacity-30 blur-[120px]" />
+        </div>
+
+        <div className="max-w-screen-xl mx-auto px-4 md:px-6 py-20 relative z-10">
           <div className="flex flex-col items-center text-center gap-3">
             <div className="inline-block px-3 py-1 bg-purple-100 text-purple-700 text-xs font-semibold rounded-full">
               Fresh Perspectives
