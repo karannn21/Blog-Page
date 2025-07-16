@@ -111,13 +111,13 @@ export default function Footer() {
       </div>
 
       {/* Skyline Image */}
-      <div className="w-full mt-12 relative z-10">
+      <div className="w-full mt-10 relative z-10">
         <Image
           src="/footer.png"
           alt="Skyline"
           width={1600}
           height={300}
-          className="w-full object-cover"
+          className="w-full object-cover opacity-50"
         />
       </div>
 
