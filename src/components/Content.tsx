@@ -101,163 +101,158 @@ export default function Content() {
   };
 
   return (
-    <div className="w-full overflow-hidden relative">
-      {/* === Featured Blogs Background === */}
-      <div
-        className="fixed top-0 left-0 w-full h-[120vh] -z-10
-          bg-white dark:bg-black
-          bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)]
-          bg-[size:14px_24px]
-          [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"
-      />
-
-      <div className="max-w-screen-xl mx-auto px-4 py-20 flex flex-col gap-16 relative">
-        <BlogFilter />
-
-        {/* === Featured Blogs Section Start === */}
-        <div className="relative w-full min-h-screen">
-          <div className="relative z-10 max-w-screen-xl mx-auto px-4 md:px-6 py-20">
-            <div className="flex flex-col items-center text-center gap-3">
-              <div className="inline-block px-3 py-1 bg-purple-100 text-purple-700 text-xs font-semibold rounded-full">
-                Featured Voices
-              </div>
-              <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100">
-                Featured{" "}
-                <span className="bg-gradient-to-r from-purple-500 via-cyan-400 to-yellow-400 text-transparent bg-clip-text">
-                  Blogs
-                </span>
-              </h1>
-              <p className="text-gray-600 dark:text-gray-400 max-w-2xl">
-                Insights on AI hiring, machine learning in assessments, and
-                next-gen recruitment.
-              </p>
-            </div>
-            <div className="mt-10">
-              <Cards />
-            </div>
-          </div>
+    <div className="w-full relative">
+      {/* === Global Background Container === */}
+      <div className="fixed inset-0 -z-50">
+        {/* Featured Blogs Background - Grid Pattern with Blur */}
+        <div className="absolute inset-0 bg-white dark:bg-black bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]">
+          <div className="absolute left-0 right-0 top-0 m-auto h-[310px] w-[310px] rounded-full bg-fuchsia-400 opacity-20 blur-[100px]"></div>
         </div>
-        {/* === Featured Blogs Section End === */}
 
-        {/* === Recent Blogs Section Start === */}
-        <div className="relative w-full overflow-hidden min-h-screen">
-          {/* Dot-dot background fills entire section */}
-          <div
-            className="absolute top-0 left-0 w-full h-full -z-10
-              bg-white dark:bg-black
-              bg-[radial-gradient(circle, #4f4f4f2e 1px, transparent 1px)]
-              dark:bg-[radial-gradient(circle, #374151 1px, transparent 1px)]
-              bg-[size:16px_16px]"
-          />
-
-          <div className="max-w-screen-xl mx-auto px-4 md:px-6 py-20">
-            <div className="flex flex-col items-center text-center gap-3">
-              <div className="inline-block px-3 py-1 bg-purple-100 text-purple-700 text-xs font-semibold rounded-full">
-                Fresh Perspectives
-              </div>
-              <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100">
-                Recent{" "}
-                <span className="bg-gradient-to-r from-purple-500 via-cyan-400 to-yellow-400 text-transparent bg-clip-text">
-                  Blogs
-                </span>
-              </h1>
-              <p className="text-gray-600 dark:text-gray-400 max-w-2xl">
-                Navigate the future of hiring with expert insights and proven
-                strategies.
-              </p>
-              <div className="flex gap-3 mt-4">
-                <button
-                  onClick={handlePrev}
-                  disabled={startIndex === 0}
-                  className={twMerge(
-                    clsx(
-                      "w-10 h-10 flex items-center justify-center rounded-full border border-transparent relative overflow-hidden",
-                      startIndex === 0 && "opacity-50 cursor-not-allowed"
-                    )
-                  )}
-                >
-                  <span className="absolute inset-0 rounded-full p-px bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400" />
-                  <span className="relative flex items-center justify-center w-full h-full bg-white dark:bg-black rounded-full">
-                    <i className="fa fa-chevron-left text-gray-800 dark:text-white text-sm" />
-                  </span>
-                </button>
-                <button
-                  onClick={handleNext}
-                  disabled={startIndex + 3 >= recentCards.length}
-                  className={twMerge(
-                    clsx(
-                      "w-10 h-10 flex items-center justify-center rounded-full border border-transparent relative overflow-hidden",
-                      startIndex + 3 >= recentCards.length &&
-                        "opacity-50 cursor-not-allowed"
-                    )
-                  )}
-                >
-                  <span className="absolute inset-0 rounded-full p-px bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400" />
-                  <span className="relative flex items-center justify-center w-full h-full bg-white dark:bg-black rounded-full">
-                    <i className="fa fa-chevron-right text-gray-800 dark:text-white text-sm" />
-                  </span>
-                </button>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-2 md:px-4 mt-10">
-              {visibleCards.map((card, index) => (
-                <motion.div
-                  key={index}
-                  className="p-[2px] rounded-xl bg-gradient-to-r from-pink-500 via-yellow-400 via-green-400 via-blue-500 to-purple-500"
-                  whileHover={{ scale: 1.05 }}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  <a
-                    href="#"
-                    className="group flex flex-col w-full max-w-[420px] mx-auto bg-white dark:bg-gray-900 rounded-xl overflow-hidden transform transition-transform duration-300"
-                  >
-                    <div className="relative w-full pt-[60%] overflow-hidden p-1 bg-white dark:bg-gray-900">
-                      <img
-                        className="absolute inset-0 w-full h-full object-cover rounded"
-                        src={card.image}
-                        alt={card.title}
-                      />
-                    </div>
-                    <div className="p-4 flex flex-col gap-2 bg-gray-200 dark:bg-gray-800">
-                      <p className="text-xs text-pink-600 font-semibold">
-                        {card.tag}
-                      </p>
-                      <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 leading-snug line-clamp-2 group-hover:text-purple-600 transition-colors duration-200">
-                        {card.title}
-                      </h2>
-                      <div className="flex items-center flex-wrap gap-2 text-sm text-gray-600 dark:text-gray-400 mt-1">
-                        <img
-                          src="/logo.png"
-                          alt="logo"
-                          width={18}
-                          height={18}
-                        />
-                        <span className="text-[13px] font-medium">
-                          EverythingTalent Team
-                        </span>
-                        <Clock size={14} className="ml-2" />
-                        <span className="text-[13px]">{card.readTime}</span>
-                      </div>
-                      <p className="text-xs text-gray-500 dark:text-gray-400">
-                        {card.date}
-                      </p>
-                    </div>
-                  </a>
-                </motion.div>
-              ))}
-            </div>
-
-            <div className="mt-16" />
-            <Banner />
-            <div className="mt-16" />
-            <Banner2 />
-          </div>
-        </div>
-        {/* === Recent Blogs Section End === */}
+        {/* Recent Blogs Background - Dot Pattern (Initially Hidden) */}
+        <div
+          className="absolute inset-0 bg-white dark:bg-black bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#374151_1px,transparent_1px)] [background-size:16px_16px] opacity-0 transition-opacity duration-1000"
+          id="dot-background"
+        ></div>
       </div>
+
+      {/* BlogFilter - Full Width Background */}
+      <div className="w-full relative z-10">
+        <div className="max-w-screen-xl mx-auto px-4 py-20">
+          <BlogFilter />
+        </div>
+      </div>
+
+      {/* === Featured Blogs Section Start === */}
+      <div className="w-full bg-white dark:bg-black bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] relative min-h-screen">
+        <div className="absolute left-0 right-0 top-0 m-auto h-[310px] w-[310px] rounded-full bg-fuchsia-400 opacity-20 blur-[100px]"></div>
+        <div className="relative z-10 max-w-screen-xl mx-auto px-4 md:px-6 py-20">
+          <div className="flex flex-col items-center text-center gap-3">
+            <div className="inline-block px-3 py-1 bg-purple-100 text-purple-700 text-xs font-semibold rounded-full">
+              Featured Voices
+            </div>
+            <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100">
+              Featured{" "}
+              <span className="bg-gradient-to-r from-purple-500 via-cyan-400 to-yellow-400 text-transparent bg-clip-text">
+                Blogs
+              </span>
+            </h1>
+            <p className="text-gray-600 dark:text-gray-400 max-w-2xl">
+              Insights on AI hiring, machine learning in assessments, and
+              next-gen recruitment.
+            </p>
+          </div>
+          <div className="mt-10">
+            <Cards />
+          </div>
+        </div>
+      </div>
+      {/* === Featured Blogs Section End === */}
+
+      {/* === Recent Blogs Section Start === */}
+      <div className="w-full bg-white dark:bg-black bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#374151_1px,transparent_1px)] [background-size:16px_16px] relative min-h-screen">
+        <div className="max-w-screen-xl mx-auto px-4 md:px-6 py-20">
+          <div className="flex flex-col items-center text-center gap-3">
+            <div className="inline-block px-3 py-1 bg-purple-100 text-purple-700 text-xs font-semibold rounded-full">
+              Fresh Perspectives
+            </div>
+            <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100">
+              Recent{" "}
+              <span className="bg-gradient-to-r from-purple-500 via-cyan-400 to-yellow-400 text-transparent bg-clip-text">
+                Blogs
+              </span>
+            </h1>
+            <p className="text-gray-600 dark:text-gray-400 max-w-2xl">
+              Navigate the future of hiring with expert insights and proven
+              strategies.
+            </p>
+            <div className="flex gap-3 mt-4">
+              <button
+                onClick={handlePrev}
+                disabled={startIndex === 0}
+                className={twMerge(
+                  clsx(
+                    "w-10 h-10 flex items-center justify-center rounded-full border border-transparent relative overflow-hidden",
+                    startIndex === 0 && "opacity-50 cursor-not-allowed"
+                  )
+                )}
+              >
+                <span className="absolute inset-0 rounded-full p-px bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400" />
+                <span className="relative flex items-center justify-center w-full h-full bg-white dark:bg-black rounded-full">
+                  <i className="fa fa-chevron-left text-gray-800 dark:text-white text-sm" />
+                </span>
+              </button>
+              <button
+                onClick={handleNext}
+                disabled={startIndex + 3 >= recentCards.length}
+                className={twMerge(
+                  clsx(
+                    "w-10 h-10 flex items-center justify-center rounded-full border border-transparent relative overflow-hidden",
+                    startIndex + 3 >= recentCards.length &&
+                      "opacity-50 cursor-not-allowed"
+                  )
+                )}
+              >
+                <span className="absolute inset-0 rounded-full p-px bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400" />
+                <span className="relative flex items-center justify-center w-full h-full bg-white dark:bg-black rounded-full">
+                  <i className="fa fa-chevron-right text-gray-800 dark:text-white text-sm" />
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-2 md:px-4 mt-10">
+            {visibleCards.map((card, index) => (
+              <motion.div
+                key={index}
+                className="p-[2px] rounded-xl bg-gradient-to-r from-pink-500 via-yellow-400 via-green-400 via-blue-500 to-purple-500"
+                whileHover={{ scale: 1.05 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <a
+                  href="#"
+                  className="group flex flex-col w-full max-w-[420px] mx-auto bg-white dark:bg-gray-900 rounded-xl overflow-hidden transform transition-transform duration-300"
+                >
+                  <div className="relative w-full pt-[60%] overflow-hidden p-1 bg-white dark:bg-gray-900">
+                    <img
+                      className="absolute inset-0 w-full h-full object-cover rounded"
+                      src={card.image}
+                      alt={card.title}
+                    />
+                  </div>
+                  <div className="p-4 flex flex-col gap-2 bg-gray-200 dark:bg-gray-800">
+                    <p className="text-xs text-pink-600 font-semibold">
+                      {card.tag}
+                    </p>
+                    <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 leading-snug line-clamp-2 group-hover:text-purple-600 transition-colors duration-200">
+                      {card.title}
+                    </h2>
+                    <div className="flex items-center flex-wrap gap-2 text-sm text-gray-600 dark:text-gray-400 mt-1">
+                      <img src="/logo.png" alt="logo" width={18} height={18} />
+                      <span className="text-[13px] font-medium">
+                        EverythingTalent Team
+                      </span>
+                      <Clock size={14} className="ml-2" />
+                      <span className="text-[13px]">{card.readTime}</span>
+                    </div>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">
+                      {card.date}
+                    </p>
+                  </div>
+                </a>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="mt-16" />
+          <Banner />
+          <div className="mt-16" />
+          <Banner2 />
+        </div>
+      </div>
+      {/* === Recent Blogs Section End === */}
     </div>
   );
 }
