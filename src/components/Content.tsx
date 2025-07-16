@@ -122,7 +122,13 @@ export default function Content() {
 
       {/* === Featured Blogs Section Start === */}
       <div className="w-full bg-white dark:bg-black bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] relative min-h-screen">
+        {/* Pink Glow */}
         <div className="absolute left-0 right-0 top-0 m-auto h-[310px] w-[310px] rounded-full bg-fuchsia-400 opacity-20 blur-[100px]" />
+        {/* Blue Gradient Overlap for Blend */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute left-1/2 bottom-0 transform -translate-x-1/2 translate-y-1/2 h-[500px] w-[500px] rounded-full bg-gradient-to-br from-blue-600 via-blue-500 to-blue-400 opacity-30 blur-[140px] mix-blend-overlay" />
+        </div>
+
         <div className="relative z-10 max-w-screen-xl mx-auto px-4 md:px-6 py-20">
           <div className="flex flex-col items-center text-center gap-3">
             <div className="inline-block px-3 py-1 bg-purple-100 text-purple-700 text-xs font-semibold rounded-full">
@@ -145,7 +151,9 @@ export default function Content() {
         </div>
       </div>
       {/* === Featured Blogs Section End === */}
-
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 h-[500px] w-[500px] rounded-full bg-gradient-to-br from-blue-600 via-blue-500 to-blue-400 opacity-30 blur-[140px] mix-blend-overlay" />
+      </div>
       {/* === Recent Blogs Section Start === */}
       <div className="w-full relative min-h-screen bg-white dark:bg-black bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#374151_1px,transparent_1px)] [background-size:16px_16px]">
         {/* Blue blending effect - subtle center spot */}
